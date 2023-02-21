@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>{% block title %}{% endblock %}</title>
-    {% load static %}
-    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link rel="icon" type="image/x-icon" href="{{ static('img/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ static('css/style.css') }}">
     {% block csshead %}{% endblock %}
     {% block jshead %}{% endblock %}
 </head>
 <body>
+    {% include 'nav.html' %}
+
     <main id="main">
         <section id="content" class="content">
             <header>{% block header %}{% endblock %}</header>
@@ -22,7 +24,7 @@
 
     <footer>
         <div id="footer">
-            <p>&copy;{{ current_year }} {{ project_sitename }}</p>
+            <p>&copy;{{ now().strftime('%Y') }} Jinja Reports</p>
             <p class="right">v{{ project_version }}</p>
         </div>
     </footer>

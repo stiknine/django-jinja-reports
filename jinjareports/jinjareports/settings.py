@@ -59,6 +59,19 @@ ROOT_URLCONF = 'jinjareports.urls'
 
 TEMPLATES = [
     {
+        'BACKEND': 'django.template.backends.jinja2.Jinja2',
+        'DIRS': [BASE_DIR / 'templates' / 'jinja2'],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'environment': 'jinjareports.jinja2.environment',
+            'extensions': [
+                'jinja2.ext.debug',
+                'jinja2.ext.do',
+                'jinja2.ext.loopcontrols',
+            ],
+        },
+    },
+    {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
@@ -69,8 +82,6 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'jinjareports.context_processors.project_version',
-                'jinjareports.context_processors.project_sitename',
-                'jinjareports.context_processors.current_year',
             ],
         },
     },
@@ -129,8 +140,6 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 STATIC_ROOT = env("STATIC_ROOT")
-
-PROJECT_SITE_NAME = env('PROJECT_SITE_NAME')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Jinja Reports{% endblock %}
+
+{% block header %}<h1>Greetings, from Jinja!</h1>{% endblock %}
+
+{% block content %}
+    <p>Date and Time: {{ now().strftime('%m/%d/%Y %H:%M') }}</p><br>
+    {{ lorem(3, 'p')|safe }}
+{% endblock %}

@@ -31,6 +31,31 @@ a:hover {
     color: black;
 }
 
+/* navigation */
+nav {
+    background-color: #eaeaea;
+    height: 52px;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    padding: .3em 0;
+    z-index: 9;
+}
+
+nav div {
+    float: right;
+    margin-right: 1em;
+    text-align: right;
+}
+
+nav #logo {
+    float: left;
+    padding: 0;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 180px;
+}
+
 /* footer */
 footer {
     height: 55px;
